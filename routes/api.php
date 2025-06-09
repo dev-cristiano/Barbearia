@@ -14,9 +14,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::prefix('v1')->group(function () {
-    Route::apiResource('services', ServiceController::class);
-    Route::apiResource('professionals', ProfessionalController::class);
-    Route::apiResource('clients', ClientController::class);
-    Route::apiResource('appointments', AppointmentController::class);
+//Route::prefix('v1')->group(function () {
+//    Route::apiResource('services', ServiceController::class);
+//    Route::apiResource('professionals', ProfessionalController::class);
+//    Route::apiResource('clients', ClientController::class);
+//    Route::apiResource('appointments', AppointmentController::class);
+//});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 });

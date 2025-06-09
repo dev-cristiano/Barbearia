@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AgendaController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('layouts/employees/index');
     }
 
     /**
