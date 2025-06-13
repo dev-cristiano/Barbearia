@@ -20,7 +20,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts/employees/create');
     }
 
     /**

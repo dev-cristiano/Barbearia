@@ -1,27 +1,30 @@
 <x-app-layout>
     <x-slot name="header">
-        <div>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Serviços') }}
-            </h2>
-            <p>Gerencie os serviços da sua barbearia</p>
+        <div class="flex justify-between items-center">
+            <div>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('Serviços') }}
+                </h2>
+                <p>Gerencie os serviços da sua barbearia</p>
+            </div>
+
+            <!-- Botão do Modal -->
+            <button
+                type="button"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
+                onclick="openModal()"
+            >
+                Abrir Modal
+            </button>
         </div>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("API Services Access Successful") }}
                 </div>
-                <!-- Botão do Modal -->
-                <button
-                    type="button"
-                    class="w-32 h-10 items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200"
-                    onclick="openModal()"
-                >
-                    Abrir Modal
-                </button>
             </div>
         </div>
     </div>
