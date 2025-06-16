@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +15,5 @@ Route::post('/services', [ServiceController::class, 'store'])->name('services.st
 
 Route::post('/enterprises/store', [EnterpriseController::class, 'store'])->name('enterprises.store');
 Route::put('/enterprises/{id}', [EnterpriseController::class, 'update'])->name('enterprises.update');
+
+Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');

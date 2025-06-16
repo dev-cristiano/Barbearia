@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Enterprise extends Model
 {
@@ -17,5 +18,9 @@ class Enterprise extends Model
         'phone',
         'status',
         'user_id',
+        'address',
+        'city',
+        'number',
+        'complement',
     ];
 }

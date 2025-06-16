@@ -3,6 +3,7 @@ import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: ["class"],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
@@ -47,9 +48,33 @@ export default {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
-                amber: {
-                    500: "#f59e0b",
-                    600: "#d97706",
+                barbershop: {
+                    primary: "#ff8c00",
+                    secondary: "#ffa500",
+                    dark: "#1a1a2e",
+                    darker: "#16213e",
+                    darkest: "#0f3460",
+                },
+            },
+            backgroundImage: {
+                "barbershop-gradient": "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+                "orange-gradient": "linear-gradient(135deg, #ff8c00 0%, #ffa500 100%)",
+            },
+            backdropBlur: {
+                xs: "2px",
+            },
+            animation: {
+                "fade-in": "fadeIn 0.5s ease-in-out",
+                "slide-in": "slideIn 0.3s ease-out",
+            },
+            keyframes: {
+                fadeIn: {
+                    "0%": { opacity: "0" },
+                    "100%": { opacity: "1" },
+                },
+                slideIn: {
+                    "0%": { transform: "translateX(-100%)" },
+                    "100%": { transform: "translateX(0)" },
                 },
             },
             borderRadius: {
@@ -59,5 +84,5 @@ export default {
             },
         },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [require("@tailwindcss/forms"), require("tailwindcss-animate")],
 };

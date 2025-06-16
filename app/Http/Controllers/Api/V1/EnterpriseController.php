@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use \Illuminate\Support\Facades\Validator;
 use \Illuminate\Http\RedirectResponse;
@@ -16,10 +17,11 @@ class EnterpriseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): string
+    public function index(): View|Closure|string
     {
-        $enterprises = Enterprise::all()->where('user_id', '=', Auth::user()->id);
-        return view('layouts/enterprises/index',  compact('enterprises'));
+        $enterprises = Enterprise::where('user_id', Auth::id())->get();
+
+        return view('layouts.enterprises.index', compact('enterprises'));
     }
 
     /**
@@ -34,7 +36,7 @@ class EnterpriseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): \Illuminate\Http\JsonResponse|RedirectResponse
     {
         $validator = Validator::make($request->all(), [
             'fantasy_name' => ['required', 'string', 'max:255'],
@@ -43,6 +45,10 @@ class EnterpriseController extends Controller
             'phone' => ['required', 'string', 'max:11'],
             'status' => ['required', 'boolean', 'in:0,1'],
             'user_id' => ['required', 'integer'],
+            'address' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:100'],
+            'number' => ['required', 'string', 'max:11'],
+            'complement' => ['required', 'string', 'max:255'],
         ]);
 
         if ($validator->fails()) {
@@ -74,7 +80,7 @@ class EnterpriseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(Request $request, string $id): \Illuminate\Http\JsonResponse|RedirectResponse
     {
         $validator = Validator::make($request->all(), [
             'fantasy_name' => ['required', 'string', 'max:255'],
@@ -83,6 +89,10 @@ class EnterpriseController extends Controller
             'phone' => ['required', 'string', 'max:11'],
             'status' => ['required', 'boolean', 'in:0,1'],
             'user_id' => ['required', 'integer'],
+            'address' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:100'],
+            'number' => ['required', 'string', 'max:11'],
+            'complement' => ['required', 'string', 'max:255'],
         ]);
 
         if($validator->fails()){
@@ -92,7 +102,7 @@ class EnterpriseController extends Controller
         $enterprise = Enterprise::findOrFail($id);
         $enterprise->update($validator->validate());
 
-        return redirect()->route('enterprises.index')->with('message', 'Enterprise Atualizado com Sucesso!');
+        return redirect()->route('enterprises.index')->with('message', 'Enterprise Atualizada com Sucesso!');
     }
 
     /**

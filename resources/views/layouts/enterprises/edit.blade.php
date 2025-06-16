@@ -3,10 +3,10 @@
         <div class="flex justify-between items-center">
             <div>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('Empresas') }}
+                    {{ __('Enterprises') }}
                 </h2>
                 <p class="text-sm text-gray-600 mt-1">
-                    Gerencie todas as empresas cadastradas no sistema
+                    Manage all companies registered in the system
                 </p>
             </div>
         </div>
@@ -19,9 +19,10 @@
                     @csrf
                     @method('PUT')
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="hidden" value="{{ Auth::user()->id  }}" name="user_id">
                         <!-- Nome -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700" for="fantasy_name">Nome da Empresa</label>
+                            <label class="block text-sm font-medium text-gray-700" for="fantasy_name">Name</label>
                             <input type="text" name="fantasy_name" id="fantasy_name" required
                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                             value="{{ old('fantasy_name', $enterprise->fantasy_name) }}">
@@ -45,7 +46,7 @@
 
                         <!-- Telefone -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700" for="phone">Telefone</label>
+                            <label class="block text-sm font-medium text-gray-700" for="phone">Phone</label>
                             <input type="text" name="phone" id="phone"
                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                    value="{{ old('phone', $enterprise->phone) }}">
@@ -56,9 +57,9 @@
                             <label class="block text-sm font-medium text-gray-700" for="status">Status</label>
                             <select name="status" id="status" required
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <option value="" disabled {{ old('status', $enterprise->status ?? '') === null ? 'selected' : '' }}>Selecione o status</option>
-                                <option value="1" {{ old('status', $enterprise->status ?? '') == '1' ? 'selected' : '' }}>Ativo</option>
-                                <option value="0" {{ old('status', $enterprise->status ?? '') == '0' ? 'selected' : '' }}>Inativo</option>
+                                <option value="" disabled {{ old('status', $enterprise->status ?? '') === null ? 'selected' : '' }}>Select Status</option>
+                                <option value="1" {{ old('status', $enterprise->status ?? '') == '1' ? 'selected' : '' }}>Active</option>
+                                <option value="0" {{ old('status', $enterprise->status ?? '') == '0' ? 'selected' : '' }}>Inactive</option>
                             </select>
                         </div>
 
@@ -66,11 +67,11 @@
                     <div class="mt-6 flex justify-start space-x-2">
                         <a href="{{ route('enterprises.index') }}"
                            class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 border border-gray-300 rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-300 transition">
-                            Voltar
+                            Back
                         </a>
                         <button type="submit"
                                 class="inline-flex items-center px-4 py-2 bg-blue-600 text-white border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring ring-blue-300 transition">
-                            Salvar
+                            Save
                         </button>
                     </div>
                 </form>

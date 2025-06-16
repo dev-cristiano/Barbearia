@@ -10,12 +10,12 @@ use App\Http\Controllers\Api\V1\ClientController;
 use \App\Http\Controllers\Api\V1\EnterpriseController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'has.enterprise'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     // Funcionários
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
+    Route::get('/employees/{id}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
 
     // Serviços
     Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
