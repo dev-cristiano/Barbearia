@@ -14,6 +14,6 @@ Route::get('/user', function (Request $request) {
 Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 
 Route::post('/enterprises/store', [EnterpriseController::class, 'store'])->name('enterprises.store');
-Route::put('/enterprises/{id}', [EnterpriseController::class, 'update'])->name('enterprises.update');
+Route::put('/enterprises/{enterprise}', [EnterpriseController::class, 'update'])->name('enterprises.update');
 
 Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');

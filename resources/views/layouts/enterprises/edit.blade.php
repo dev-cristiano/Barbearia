@@ -20,7 +20,7 @@
                     @method('PUT')
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <input type="hidden" value="{{ Auth::user()->id  }}" name="user_id">
-                        <!-- Nome -->
+                        <!-- Fantasy Name -->
                         <div>
                             <label class="block text-sm font-medium text-gray-700" for="fantasy_name">Name</label>
                             <input type="text" name="fantasy_name" id="fantasy_name" required
@@ -44,12 +44,52 @@
                                    value="{{ old('fantasy_name', $enterprise->email) }}">
                         </div>
 
-                        <!-- Telefone -->
+                        <!-- Phone -->
                         <div>
                             <label class="block text-sm font-medium text-gray-700" for="phone">Phone</label>
                             <input type="text" name="phone" id="phone"
                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                                    value="{{ old('phone', $enterprise->phone) }}">
+                        </div>
+
+                        <!-- Address -->
+                        <div class="col-span-2 md:col-span-1">
+                            <label for="address" class="block text-sm font-medium text-gray-700">
+                                Address
+                            </label>
+                            <input type="text" name="address" id="address"
+                                   class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                   value="{{ old('phone', $enterprise->address) }}">
+                        </div>
+
+                        <!-- City -->
+                        <div class="col-span-2 md:col-span-1">
+                            <label for="city" class="block text-sm font-medium text-gray-700">
+                                City
+                            </label>
+                            <input type="text" name="city" id="city"
+                                   class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                   value="{{ old('phone', $enterprise->city) }}">
+                        </div>
+
+                        <!-- Number -->
+                        <div class="col-span-2 md:col-span-1">
+                            <label for="number" class="block text-sm font-medium text-gray-700">
+                                Number
+                            </label>
+                            <input type="text" name="number" id="number"
+                                   class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                   value="{{ old('phone', $enterprise->number) }}">
+                        </div>
+
+                        <!-- Complement -->
+                        <div class="col-span-2 md:col-span-1">
+                            <label for="complement" class="block text-sm font-medium text-gray-700">
+                                Complement
+                            </label>
+                            <input type="text" name="complement" id="complement"
+                                   class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                   value="{{ old('phone', $enterprise->complement) }}">
                         </div>
 
                         <!-- Status -->

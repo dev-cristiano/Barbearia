@@ -86,10 +86,12 @@
                                 {{ \App\Facades\Format::phone($enterprise->phone) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full">
+                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full
+                                    {{ $enterprise->status ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                                     {{ $enterprise->status ? 'ACTIVE' : 'INACTIVE' }}
                                 </span>
                             </td>
+
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 {{ \App\Facades\Format::date($enterprise->created_at) }}
                             </td>
