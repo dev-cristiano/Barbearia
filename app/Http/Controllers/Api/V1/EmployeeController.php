@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\Enterprise;
 use Illuminate\Support\Facades\Auth;
 use \Illuminate\Support\Facades\Validator;
 use Illuminate\Http\RedirectResponse;
@@ -26,6 +27,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        $enterprises = Enterprise::where('user_id', Auth::id())->get();
+        dd($enterprises);
         return view('layouts/employees/create');
     }
 

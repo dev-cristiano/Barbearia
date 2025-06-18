@@ -20,7 +20,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                        <!-- Nome -->
+                        <!-- Name -->
                         <div>
                             <label class="block text-sm font-medium text-gray-700" for="full_name">Full Name</label>
                             <input type="text" name="full_name" id="full_name" required
@@ -34,7 +34,7 @@
                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                         </div>
 
-                        <!-- Telefone -->
+                        <!-- Phone -->
                         <div>
                             <label class="block text-sm font-medium text-gray-700" for="phone">Phone</label>
                             <input type="text" name="phone" id="phone" maxlength="11"
@@ -62,15 +62,14 @@
 
                         <!-- Enterprises -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700" for="enterprise_id">Specialties</label>
+                            <label class="block text-sm font-medium text-gray-700" for="enterprise_id">Enterprises</label>
                             <select name="enterprise_id" id="enterprise_id" required
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                                 <option value="">Select Enterprise</option>
-                                <option value="9">Poupi Enterprises</option>
+                                <option value=""></option>
                             </select>
                         </div>
-
-                        <!-- Botões -->
+                        <!-- Buttons -->
                         <div class="mt-6 flex justify-start space-x-4">
                             <a href="{{ route('enterprises.index') }}"
                                class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 border border-gray-300 rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-300 transition">
